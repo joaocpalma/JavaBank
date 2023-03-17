@@ -9,9 +9,35 @@ import java.util.List;
  * The customer model entity
  */
 public class Customer extends AbstractModel {
-
     private String name;
+
+    private String email;
+    private String first_name;
+    private String last_name;
+    private String phone;
+    private double balance;
+
     private List<Account> accounts = new ArrayList<>();
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
+    }
+
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
     /**
      * Gets the name of the customer

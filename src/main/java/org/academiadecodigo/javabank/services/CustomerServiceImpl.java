@@ -21,6 +21,7 @@ public class CustomerServiceImpl implements CustomerService {
         return customerMap.isEmpty() ? 1 : Collections.max(customerMap.keySet()) + 1;
     }
 
+
     /**
      * @see CustomerService#get(Integer)
      */
