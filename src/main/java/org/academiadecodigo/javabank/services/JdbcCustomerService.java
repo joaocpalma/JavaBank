@@ -68,39 +68,7 @@ public class JdbcCustomerService implements CustomerService{
 
     @Override
     public Set<Integer> listCustomerAccountIds(Integer id) {
-        HashSet<Integer> customerAccountsIDs = new HashSet<>();
-
-        try {
-
-            Statement statement = dbConnection.createStatement();
-
-            String query = "SELECT id FROM account";
-            resultSet = statement.executeQuery(query);
-
-            // user exists
-            if(resultSet.next()) {
-
-                String customerFirstName = resultSet.getString("first_name");
-                String customerLastName = resultSet.getString("last_name");
-                String customerEmail = resultSet.getString("email");
-                String customerPhone = resultSet.getString("phone");
-
-                customer.setFirst_name(customerFirstName);
-                customer.setLast_name(customerLastName);
-                customer.setEmail(customerEmail);
-                customer.setPhone(customerPhone);
-
-                customerValues.add(customerFirstName);
-                customerValues.add(customerLastName);
-                customerValues.add(customerEmail);
-                customerValues.add(customerPhone);
-
-                System.out.println(customerValues);
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return customer;
+        return null;
     }
 
     @Override

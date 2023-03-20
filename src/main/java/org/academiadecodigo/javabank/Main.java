@@ -14,7 +14,6 @@ public class Main {
         Connection connection = connectionManager.getConnection();
 
         JdbcCustomerService jdbcCustomerService = new JdbcCustomerService(connection);
-        jdbcCustomerService.count();
         jdbcCustomerService.get(2);
         jdbcCustomerService.getBalance(2);
     }
