@@ -48,7 +48,6 @@ public class Bootstrap {
     public void setAccountService(AccountService accountService) {
         this.accountService = accountService;
     }
-
     /**
      * Wires the necessary object dependencies
      *
