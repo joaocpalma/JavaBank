@@ -1,9 +1,8 @@
-package org.academiadecodigo.javabank.MyTests;
+package org.academiadecodigo.javabank.mytests;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.RollbackException;
-import java.util.ArrayList;
 
 public class PokemonService {
     private EntityManagerFactory emf;

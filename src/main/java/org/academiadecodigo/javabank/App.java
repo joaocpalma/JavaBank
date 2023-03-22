@@ -6,23 +6,31 @@ import org.academiadecodigo.javabank.persistence.ConnectionManager;
 import org.academiadecodigo.javabank.services.jdbc.JdbcAccountService;
 import org.academiadecodigo.javabank.services.jdbc.JdbcCustomerService;
 import org.academiadecodigo.javabank.services.AuthServiceImpl;
+import org.academiadecodigo.javabank.services.jpa.JpaAccountService;
+import org.academiadecodigo.javabank.services.jpa.JpaCustomerService;
+
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 public class App {
 
     public static void main(String[] args) {
+
+
 
         App app = new App();
         app.bootStrap();
     }
 
     private void bootStrap() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("test");
 
         ConnectionManager connectionManager = new ConnectionManager();
 
         AccountFactory accountFactory = new AccountFactory();
-        JdbcAccountService accountService = new JdbcAccountService(connectionManager, accountFactory);
-        JdbcCustomerService customerService = new JdbcCustomerService(connectionManager);
-        customerService.setAccountService(accountService);
+        JpaAccountService accountService = new JpaAccountService(accountFactory);
+        JpaCustomerService customerService = new JpaCustomerService(accountService);
+        customerService.setEmf(emf);
 
         Bootstrap bootstrap = new Bootstrap();
         bootstrap.setAuthService(new AuthServiceImpl());
@@ -35,5 +43,9 @@ public class App {
         controller.init();
 
         connectionManager.close();
+
+        JpaAccountService jpaAccountService = new JpaAccountService();
+
+        jpaAccountService.get(1);
     }
 }

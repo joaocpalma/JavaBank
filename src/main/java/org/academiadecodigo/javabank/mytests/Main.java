@@ -1,24 +1,26 @@
-package org.academiadecodigo.javabank.MyTests;
+package org.academiadecodigo.javabank.mytests;
 
-import javax.persistence.EntityManager;
+import org.academiadecodigo.javabank.services.jpa.JpaAccountService;
+
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("test");
-
+/*
         PokemonService service = new PokemonService();
+        TrainerService trainerService = new TrainerService();
         service.setEmf(emf);
+        trainerService.setEmf(emf);
 
-        /* Pokemon p1 = new Pokemon("Electric","Pikachu","Yellow Rat");
+        *//* Pokemon p1 = new Pokemon("Electric","Pikachu","Yellow Rat");
         Pokemon p2 = new Pokemon("Water","Squirtle","Wet_squirel");
         Pokemon p3 = new Pokemon("Grass","Bulbassur","Turnip");
 
         p1.setMoveSet(new MoveSet("Volt Tackle","Electroweb","Electro Ball","Iron Tail"));
         p2.setMoveSet(new MoveSet("Bubble Beam","Hydro Pump","Rapid Spin","Withdraw"));
-        p3.setMoveSet(new MoveSet("Seed Bomb","Sludge Bomb","Power Whip","Frustration Shadow"));*/
+        p3.setMoveSet(new MoveSet("Seed Bomb","Sludge Bomb","Power Whip","Frustration Shadow"));*//*
 
         Pokemon p1 = new BabyPokemon();
         p1.setNickname("zé");
@@ -30,13 +32,17 @@ public class Main {
         p2.setType("rock");
         p2.setOfficial_name("pokeram");
 
+        Trainer ash = new Trainer(19,"Ash","Pikachu");
 
+        trainerService.add(ash);
         service.add(p1);
         service.add(p2);
-
-        Pokemon poke = service.findById(1);
         
-        emf.close();
+        emf.close();*/
 
+        /*JpaAccountService jpaAccountService = new JpaAccountService();
+
+        jpaAccountService.get(1);
+*/
     }
 }

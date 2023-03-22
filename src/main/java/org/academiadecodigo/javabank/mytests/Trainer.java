@@ -1,6 +1,7 @@
-package org.academiadecodigo.javabank.MyTests;
+package org.academiadecodigo.javabank.mytests;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -10,6 +11,9 @@ public class Trainer extends AbstractionModel {
     private Integer age;
     private String name;
     private String favPokemon;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Pokemon> pokemons;
 
     public Trainer(Integer age, String name, String favPokemon) {
         this.age = age;

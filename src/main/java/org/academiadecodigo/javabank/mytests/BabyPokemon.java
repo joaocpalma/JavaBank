@@ -1,4 +1,4 @@
-package org.academiadecodigo.javabank.MyTests;
+package org.academiadecodigo.javabank.mytests;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;

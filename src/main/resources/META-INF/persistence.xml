@@ -4,13 +4,39 @@
             for creating an EntityManager instance -->
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
+        <class>org.academiadecodigo.javabank.mytests.Pokemon</class>
+        <class>org.academiadecodigo.javabank.mytests.Trainer</class>
+
         <properties>
             <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/ac?useSSL=false"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
             <property name="hibernate.connection.username" value="root"/>
             <property name="hibernate.connection.password" value=""/>
-            <property name="hibernate.archive.autodetection" value="class"/>
+            <property name="hibernate.archive.autodetection" value=""/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+        </properties>
+
+    </persistence-unit>
+
+    <persistence-unit name="javabank" transaction-type="RESOURCE_LOCAL">
+        <!-- provider element declares the class that provides the initial factory
+            for creating an EntityManager instance -->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <class>org.academiadecodigo.javabank.model.Customer</class>
+        <class>org.academiadecodigo.javabank.model.AbstractModel</class>
+        <class>org.academiadecodigo.javabank.model.account.AbstractAccount</class>
+
+        <properties>
+            <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/ac?useSSL=false"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+            <property name="hibernate.connection.username" value="root"/>
+            <property name="hibernate.connection.password" value=""/>
+            <property name="hibernate.archive.autodetection" value=""/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
             <property name="hibernate.hbm2ddl.auto" value="create"/>

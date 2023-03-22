@@ -1,4 +1,4 @@
-package org.academiadecodigo.javabank.MyTests;
+package org.academiadecodigo.javabank.mytests;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
