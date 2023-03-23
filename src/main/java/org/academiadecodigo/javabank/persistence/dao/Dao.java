@@ -4,7 +4,7 @@ import org.academiadecodigo.javabank.model.Customer;
 
 public interface Dao<T> {
 
-    T remove(Integer id);
+    void remove(Integer id);
 
     void update(T t);
 
@@ -12,5 +12,6 @@ public interface Dao<T> {
 
     T find(Integer id);
 
-    T add(T t);
+    void add(T t);
+
 }

@@ -1,8 +1,11 @@
 package org.academiadecodigo.javabank.persistence.dao.jpa;
 
 import org.academiadecodigo.javabank.model.account.Account;
+import org.academiadecodigo.javabank.persistence.TransactionManager;
 import org.academiadecodigo.javabank.persistence.dao.AccountDao;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import java.util.List;
 
 public class JpaAccountDao implements AccountDao {
@@ -28,7 +31,7 @@ public class JpaAccountDao implements AccountDao {
     }
 
     @Override
-    public Account add(Account account) {
-        return null;
+    public Integer add(Account account) {
+     return 0;
     }
 }

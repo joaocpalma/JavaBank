@@ -30,9 +30,12 @@ public class JpaCustomerDao implements CustomerDao {
 
     @Override
     public List<Customer> list() {
+
         EntityManager em = jpaSessionManager.getCurrentSession();
+
         TypedQuery<Customer> query =
                 em.createQuery("SELECT customer FROM Customer customer", Customer.class);
+
         return query.getResultList();
     }
 

@@ -5,7 +5,7 @@ import org.academiadecodigo.javabank.persistence.TransactionManager;
 
 public class JpaTransactionManager implements TransactionManager {
 
-    SessionManager sm;
+    private SessionManager sm;
 
     public SessionManager getSm() {
         return sm;

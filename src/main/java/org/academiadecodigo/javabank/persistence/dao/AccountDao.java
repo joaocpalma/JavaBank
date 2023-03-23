@@ -14,5 +14,5 @@ public interface AccountDao {
 
     Account find(Integer id);
 
-    Account add(Account account);
+    Integer add(Account account);
 }
