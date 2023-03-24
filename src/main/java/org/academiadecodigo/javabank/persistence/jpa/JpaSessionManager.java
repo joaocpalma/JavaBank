@@ -18,6 +18,7 @@ public class JpaSessionManager implements SessionManager<EntityManager> {
      *
      * @param emf the entity manager factory
      */
+
     public JpaSessionManager(EntityManagerFactory emf) {
         this.emf = emf;
     }

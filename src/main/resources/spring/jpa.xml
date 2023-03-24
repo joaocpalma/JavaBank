@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="persistence.xml"/>
+
+    <bean id="sessionmanager" class="org.academiadecodigo.javabank.persistence.jpa.JpaSessionManager">
+        <constructor-arg name="emf" ref="emFactory"/>
+    </bean>
+
+    <bean id="transactionmanager" class="org.academiadecodigo.javabank.persistence.jpa.JpaTransactionManager">
+        <constructor-arg name="sm" ref="sessionmanager"/>
+    </bean>
+
+    <bean id="jpaAccountDao" class="org.academiadecodigo.javabank.persistence.dao.jpa.JpaAccountDao">
+        <constructor-arg name="sm" ref="sessionmanager"/>
+    </bean>
+
+    <bean id="jpaCustomerDao" class="org.academiadecodigo.javabank.persistence.dao.jpa.JpaCustomerDao">
+        <constructor-arg name="sm" ref="sessionmanager"/>
+    </bean>
+
+</beans>

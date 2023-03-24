@@ -9,6 +9,8 @@ import org.academiadecodigo.javabank.persistence.jpa.JpaTransactionManager;
 import org.academiadecodigo.javabank.services.AccountServiceImpl;
 import org.academiadecodigo.javabank.services.AuthServiceImpl;
 import org.academiadecodigo.javabank.services.CustomerServiceImpl;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -17,27 +19,21 @@ public class App {
 
     public static void main(String[] args) {
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory(Config.PERSISTENCE_UNIT);
+        ApplicationContext context = new FileSystemXmlApplicationContext("src/main/resources/spring/spring-config.xml");
 
-        JpaSessionManager sm = new JpaSessionManager(emf);
-        TransactionManager tx = new JpaTransactionManager(sm);
+        //EntityManagerFactory emf = Persistence.createEntityManagerFactory(Config.PERSISTENCE_UNIT);
 
-        App app = new App();
-        app.bootStrap(tx, sm);
+        JpaSessionManager sm = context.getBean("sessionmanager", JpaSessionManager.class);
+        TransactionManager tx = context.getBean("transactionmanager", JpaTransactionManager.class);
 
-        emf.close();
+        AccountServiceImpl accountService = context.getBean("accountservice",AccountServiceImpl.class);
 
-    }
+        //accountService.setAccountDao(new JpaAccountDao(sm));
+        //accountService.setTransactionManager(tx);
 
-    private void bootStrap(TransactionManager tx, JpaSessionManager sm) {
+        CustomerServiceImpl customerService = context.getBean("customerservice", CustomerServiceImpl.class);
 
-        AccountServiceImpl accountService = new AccountServiceImpl();
-        accountService.setAccountDao(new JpaAccountDao(sm));
-        accountService.setTransactionManager(tx);
 
-        CustomerServiceImpl customerService = new CustomerServiceImpl();
-        customerService.setCustomerDao(new JpaCustomerDao(sm));
-        customerService.setTransactionManager(tx);
 
         Bootstrap bootstrap = new Bootstrap();
 
@@ -49,5 +45,6 @@ public class App {
 
         // start application
         controller.init();
+
     }
 }
