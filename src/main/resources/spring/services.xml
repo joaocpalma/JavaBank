@@ -3,12 +3,12 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+
     <bean id="authService" class="org.academiadecodigo.javabank.services.AuthServiceImpl">
         <property name="customerService" ref="customerService"/>
     </bean>
 
     <bean id="customerService" class="org.academiadecodigo.javabank.services.CustomerServiceImpl">
-        <property name="transactionManager" ref="transactionManager"/>
         <property name="customerDao" ref="customerDao"/>
     </bean>
 

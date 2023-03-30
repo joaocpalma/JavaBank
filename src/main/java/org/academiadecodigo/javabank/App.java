@@ -23,5 +23,4 @@ public class App {
         controller.init();
     }
 
-
 }
