@@ -59,6 +59,11 @@ public class MockCustomerService extends AbstractMockService<Customer> implement
                 .collect(Collectors.toSet());
     }
 
+    @Override
+    public void delete(int id) {
+
+    }
+
     /**
      * @see CustomerService#listRecipients(Integer)
      */

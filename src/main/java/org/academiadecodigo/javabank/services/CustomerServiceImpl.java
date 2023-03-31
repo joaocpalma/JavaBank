@@ -74,6 +74,11 @@ public class CustomerServiceImpl implements CustomerService {
                 .collect(Collectors.toSet());
     }
 
+    @Override
+    public void delete(int id) {
+        customerDao.delete(id);
+    }
+
     /**
      * @see CustomerService#listRecipients(Integer)
      */

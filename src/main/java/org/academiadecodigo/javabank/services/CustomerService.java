@@ -42,6 +42,7 @@ public interface CustomerService {
      */
     Set<Integer> listCustomerAccountIds(Integer id);
 
+    void delete(int id);
     /**
      * Gets the list of customer recipients
      *

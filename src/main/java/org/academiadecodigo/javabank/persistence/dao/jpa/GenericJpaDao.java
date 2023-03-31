@@ -2,6 +2,7 @@ package org.academiadecodigo.javabank.persistence.dao.jpa;
 
 import org.academiadecodigo.javabank.persistence.model.Model;
 import org.academiadecodigo.javabank.persistence.dao.Dao;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -74,6 +75,7 @@ public abstract class GenericJpaDao<T extends Model> implements Dao<T> {
      * @see Dao#delete(Integer)
      */
     @Override
+    @Transactional
     public void delete(Integer id) {
         em.remove(em.find(modelType, id));
     }
