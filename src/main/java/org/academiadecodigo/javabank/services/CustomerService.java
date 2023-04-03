@@ -33,6 +33,8 @@ public interface CustomerService {
      */
     void delete(Integer id);
 
+    void saveOrUpdate(Customer modelObject);
+
     /**
      * Gets a list of the customers
      *

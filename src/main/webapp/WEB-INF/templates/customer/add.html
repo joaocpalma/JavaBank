@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add</title>
+</head>
+<body>
+<h1>Customer Details</h1>
+<form th:object="${customerDto}" th:action="@{/customer/submit}" method="post">
+    <label for="fname">First name:</label>
+    <input type="text" id="fname" th:field="*{firstName}">
+    <label for="lname">Last name:</label>
+    <input type="text" id="lname" name="lname" th:field="*{lastName}">
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" th:field="*{email}">
+    <label for="phone">Phone</label>
+    <input type="text" id="phone" name="phone" th:field="*{phone}">
+
+    <button type="submit" name="action" value="save">Submit</button>
+
+</form>
+</body>
+</html>

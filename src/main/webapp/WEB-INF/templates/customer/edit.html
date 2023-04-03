@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+<h2>Customer Details</h2>
+<form th:object="${customer}" th:action="@{/customer/editsub}" method="post">
+    <label for="fname">First name:</label>
+    <input type="text" id="fname" th:field="*{customer.firstName}"/>
+    <label for="lname">Last name:</label>
+    <input type="text" id="lname" th:field="*{customer.lastName}"/>
+    <label for="email">email</label>
+    <input type="text" id="email" th:field="*{customer.email}"/>
+    <label for="phone">phone</label>
+    <input type="text" id="phone" th:field="*{customer.phone}"/>
+    <button type="submit" name="action" value="save">Submit</button>
+</form>
+
+</body>
+</html>

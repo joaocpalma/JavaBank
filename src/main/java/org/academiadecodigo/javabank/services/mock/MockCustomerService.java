@@ -50,6 +50,11 @@ public class MockCustomerService extends AbstractMockService<Customer> implement
         modelMap.remove(id);
     }
 
+    @Override
+    public void saveOrUpdate(Customer modelObject) {
+
+    }
+
     /**
      * @see CustomerService#listRecipients(Integer)
      */

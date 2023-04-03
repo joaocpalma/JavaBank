@@ -77,4 +77,5 @@ public abstract class GenericJpaDao<T extends Model> implements Dao<T> {
     public void delete(Integer id) {
         em.remove(em.find(modelType, id));
     }
+
 }

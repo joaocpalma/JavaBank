@@ -1,10 +1,12 @@
 package org.academiadecodigo.javabank.controller;
 
+import org.academiadecodigo.javabank.CustomerDto;
 import org.academiadecodigo.javabank.persistence.model.Customer;
 import org.academiadecodigo.javabank.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -77,5 +79,34 @@ public class CustomerController {
     public String deleteRecipient(@PathVariable Integer cid, @PathVariable Integer rid) {
         customerService.removeRecipient(cid, rid);
         return "redirect:/customer/" + cid;
+    }
+
+    @RequestMapping(method = RequestMethod.GET, path = "/newcostumer")
+    public String addCustomer(@ModelAttribute CustomerDto customerDto, Model model){
+        model.addAttribute("customerDto",customerDto);
+        return "customer/add";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, path = "/edit")
+    public String editCustomer(@PathVariable Integer id, Model model){
+        model.addAttribute(customerService.get(id));
+
+        return "customer/edit";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, path = "/editsub")
+    public String editsubCustomer(Customer customer){
+
+        return "redirect:/customer/list";
+    }
+
+    @RequestMapping(method = RequestMethod.POST, path = "/submit")
+    public String submitCustomer(@ModelAttribute("customerDto") CustomerDto customerDto, Model model){
+        model.addAttribute("firstName", customerDto.getFirstName());
+        model.addAttribute("lastName", customerDto.getLastName());
+        model.addAttribute("email", customerDto.getEmail());
+        model.addAttribute("phone", customerDto.getPhone());
+
+        return "redirect:/customer/list";
     }
 }
