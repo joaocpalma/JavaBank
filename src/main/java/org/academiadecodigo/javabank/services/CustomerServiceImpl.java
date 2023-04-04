@@ -181,7 +181,7 @@ public class CustomerServiceImpl implements CustomerService {
         customerDao.saveOrUpdate(customer);
     }
 
-    private Set<Integer> getAccountIds(Customer customer) {
+    public Set<Integer> getAccountIds(Customer customer) {
         List<Account> accounts = customer.getAccounts();
 
         return accounts.stream()
