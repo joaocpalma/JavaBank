@@ -28,9 +28,7 @@ import javax.validation.Valid;
 @Controller
 @RequestMapping("/customer")
 public class CustomerController {
-
     private CustomerService customerService;
-
     private CustomerToCustomerDto customerToCustomerDto;
     private CustomerDtoToCustomer customerDtoToCustomer;
     private AccountToAccountDto accountToAccountDto;

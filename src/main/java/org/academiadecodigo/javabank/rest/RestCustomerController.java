@@ -6,6 +6,7 @@ import org.academiadecodigo.javabank.converters.AccountToAccountDto;
 import org.academiadecodigo.javabank.converters.CustomerToCustomerDto;
 import org.academiadecodigo.javabank.exceptions.AccountNotFoundException;
 import org.academiadecodigo.javabank.persistence.model.Customer;
+import org.academiadecodigo.javabank.persistence.model.account.Account;
 import org.academiadecodigo.javabank.services.AccountService;
 import org.academiadecodigo.javabank.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -131,6 +132,18 @@ public class RestCustomerController {
     public ResponseEntity deleteCustomer(@PathVariable Integer id) {
 
         customerService.delete(id);
+
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @RequestMapping(
+            method = RequestMethod.DELETE,
+            value = "api/customer/{id}/account/{aid}",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity deleteAccount(@PathVariable Integer id, @PathVariable Integer aid) {
+
+
 
         return new ResponseEntity(HttpStatus.OK);
     }
